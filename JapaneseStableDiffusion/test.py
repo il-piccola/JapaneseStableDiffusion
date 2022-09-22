@@ -14,5 +14,5 @@ pipe = pipe.to(DEVICE)
 with autocast(DEVICE):
     image = pipe(PROMPT, guidance_scale=7.5)["sample"][0]
 
-save_path = os.path.join(IMGDIR, IMGFILE)
+save_path = os.path.join(STATIC_ROOT, IMGFILE)
 image.save(save_path)
