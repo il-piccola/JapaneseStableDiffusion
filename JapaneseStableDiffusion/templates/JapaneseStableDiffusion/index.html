@@ -14,6 +14,11 @@
     <body>
         <h1>{{ title }}</h1>
         {{ prompt }}<br>
+        {% if reload %}
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        {% endif %}
         {% if img %}
         <img src="{% static img %}">
         {% endif %}
