@@ -132,8 +132,6 @@ IMGDIR = os.path.join(Path(__file__).resolve().parent, 'static')
 
 MODEL_ID = "rinna/japanese-stable-diffusion"
 DEVICE = "cuda"
-YOUR_TOKEN = "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"
-PROMPT = "蒼い空と青い海"
 
 TEST_PY = os.path.join(Path(__file__).resolve().parent, "test.py")
 TEST_COM = "python " + TEST_PY

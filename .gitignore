@@ -1,4 +1,4 @@
 db.sqlite3
-static/admin/
+static/
 JapaneseStableDiffusion/__pycache__/
 JapaneseStableDiffusion/migrations/__pycache__/
