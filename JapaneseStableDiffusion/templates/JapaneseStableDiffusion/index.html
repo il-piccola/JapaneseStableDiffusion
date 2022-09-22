@@ -17,14 +17,14 @@
             <div class="col-auto">
                 {% if reload %}
                 <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence" disabled>
-                {% elif %}
+                {% else %}
                 <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence">
                 {% endif %}
             </div>
             <div class="col-auto">
                 {% if reload %}
                 <button type="submit" class="btn btn-primary mb-3">画像生成開始</button>
-                {% elif %}
+                {% else %}
                 <button type="submit" class="btn btn-primary mb-3" disabled>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     画像生成開始

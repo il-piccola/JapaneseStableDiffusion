@@ -12,8 +12,9 @@ def writeTest(s) :
 
 def readSentence() :
     s = ""
-    with open(SENTENCE_FILE) as f :
-        s = f.read()
+    if os.path.exists(SENTENCE_FILE) :
+        with open(SENTENCE_FILE) as f :
+            s = f.read()
     return s
 
 print("HF_TOKEN", os.environ['HF_TOKEN'])
