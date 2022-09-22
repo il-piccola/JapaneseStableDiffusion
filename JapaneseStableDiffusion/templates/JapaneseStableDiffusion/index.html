@@ -13,7 +13,22 @@
     </head>
     <body>
         <h1>{{ title }}</h1>
-        <input type="text" class="form-control" placeholder="日本語の文">
+        <form class="row g-3" action="/index">
+            <div class="col-auto">
+                {% if reload %}
+                <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence" disabled>
+                {% elif %}
+                <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence">
+                {% endif %}
+            </div>
+            <div class="col-auto">
+                {% if reload %}
+                <button type="submit" class="btn btn-primary mb-3">画像生成開始</button>
+                {% elif %}
+                <button type="submit" class="btn btn-primary mb-3" disabled>画像生成開始</button>
+                {% endif %}
+            </div>
+        </form>
         {{ prompt }}<br>
         {% if reload %}
         <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">

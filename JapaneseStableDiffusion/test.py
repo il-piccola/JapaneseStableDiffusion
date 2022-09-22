@@ -10,8 +10,13 @@ def writeTest(s) :
         f.write(s)
     return
 
+def readSentence() :
+    s = ""
+    with open(SENTENCE_FILE) as f :
+        s = f.read()
+    return s
+
 print("HF_TOKEN", os.environ['HF_TOKEN'])
-print("JP_SENTENCE", os.environ['JP_SENTENCE'])
 
 writeTest(TEST_PROCESS)
 
@@ -22,7 +27,7 @@ pipe = JapaneseStableDiffusionPipeline.from_pretrained(MODEL_ID, torch_dtype=tor
 pipe = pipe.to(DEVICE)
 
 with autocast(DEVICE):
-    image = pipe(os.environ['JP_SENTENCE'], guidance_scale=7.5)["sample"][0]
+    image = pipe(readSentence(), guidance_scale=7.5)["sample"][0]
 
 save_path = os.path.join(STATIC_ROOT, IMGFILE)
 image.save(save_path)

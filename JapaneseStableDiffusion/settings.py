@@ -139,3 +139,5 @@ TEST_COM = "python " + TEST_PY
 TEST_TXT = os.path.join(STATIC_ROOT, "test.txt")
 TEST_PROCESS = "processing"
 TEST_FINISH = "finish"
+
+SENTENCE_FILE = os.path.join(STATIC_ROOT, "sentence.txt")
