@@ -10,6 +10,9 @@ def writeTest(s) :
         f.write(s)
     return
 
+print("HF_TOKEN", os.environ['HF_TOKEN'])
+print("JP_SENTENCE", os.environ['JP_SENTENCE'])
+
 writeTest(TEST_PROCESS)
 
 # Use the K-LMS scheduler here instead
