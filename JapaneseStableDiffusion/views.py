@@ -8,6 +8,6 @@ def index(request) :
         'prompt' : PROMPT,
         'imgfile' : IMGFILE,
     }
-    proc = run(TEST_COM, shell=True, stdout=PIPE, stderr=PIPE, text=True)
+    # proc = run(TEST_COM, shell=True, stdout=PIPE, stderr=PIPE, text=True)
     return render(request, 'JapaneseStableDiffusion/index.html', params)
 
