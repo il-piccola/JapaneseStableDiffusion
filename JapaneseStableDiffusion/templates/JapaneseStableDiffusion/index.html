@@ -13,24 +13,26 @@
     </head>
     <body>
         <h1>{{ title }}</h1>
-        <form class="row g-3" action="{% url 'index' %}" method="post">
+        <form class="form-inline" action="{% url 'index' %}" method="POST">
             {% csrf_token %}
-            <div class="col-auto">
-                {% if reload %}
-                <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence" disabled>
-                {% else %}
-                <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence">
-                {% endif %}
-            </div>
-            <div class="col-auto">
-                {% if reload %}
-                <button type="submit" class="btn btn-primary mb-3" disabled>
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    画像生成開始
-                </button>
-                {% else %}
-                <button type="submit" class="btn btn-primary mb-3">画像生成開始</button>
-                {% endif %}
+            <div class="row g-1">
+                <div class="col-auto">
+                    {% if reload %}
+                    <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence" disabled>
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence">
+                    {% endif %}
+                </div>
+                <div class="col-auto">
+                    {% if reload %}
+                    <button type="submit" class="btn btn-primary mb-3" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        画像生成開始
+                    </button>
+                    {% else %}
+                    <button type="submit" class="btn btn-primary mb-3">画像生成開始</button>
+                    {% endif %}
+                </div>
             </div>
         </form>
         {{ prompt }}<br>

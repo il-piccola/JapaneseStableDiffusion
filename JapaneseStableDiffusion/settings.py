@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-4ixpj$wwx-29j5g$svt8h-oss5!bt2@*o@^_s68(fi+k)nr2u1
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
     'colab.research.google.com',
 ]
 
