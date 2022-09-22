@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-4ixpj$wwx-29j5g$svt8h-oss5!bt2@*o@^_s68(fi+k)nr2u1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'colab.research.google.com',
+]
 
 
 # Application definition
