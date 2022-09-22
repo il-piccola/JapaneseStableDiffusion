@@ -13,7 +13,7 @@ def index(request) :
         proc = Popen(TEST_COM, shell=True, stdout=PIPE, stderr=PIPE, text=True)
     elif s == TEST_FINISH :
         writeTest("")
-        params['prompt'] = PROMPT
+        params['prompt'] = os.environ['JP_SENTENCE']
         params['img'] = IMGFILE
         params['reload'] = False
     return render(request, 'JapaneseStableDiffusion/index.html', params)
