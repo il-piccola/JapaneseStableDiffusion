@@ -25,8 +25,9 @@ def index(request) :
 
 def readTest() :
     s = ""
-    with open(TEST_TXT) as f :
-        s = f.read()
+    if os.path.exists(TEST_TXT) :
+        with open(TEST_TXT) as f :
+            s = f.read()
     return s
 
 def writeTest(s) :
@@ -36,8 +37,9 @@ def writeTest(s) :
 
 def readSentence() :
     s = ""
-    with open(SENTENCE_FILE) as f :
-        s = f.read()
+    if os.path.exists(SENTENCE_FILE) :
+        with open(SENTENCE_FILE) as f :
+            s = f.read()
     return s
 
 def writeSentence(s) :
