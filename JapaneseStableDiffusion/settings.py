@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -119,8 +120,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+IMGDIR = os.path.join(STATIC_ROOT, "img")
+IMGFILE = "output.png"
+
+MODEL_ID = "rinna/japanese-stable-diffusion"
+DEVICE = "cuda"
+YOUR_TOKEN = "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"
+PROMPT = "蒼い空と青い海"
+
+TEST_PY = os.path.join(Path(__file__).resolve().parent, "test.py")
+TEST_COM = "python " + TEST_PY
