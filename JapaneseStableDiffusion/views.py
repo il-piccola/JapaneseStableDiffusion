@@ -8,23 +8,23 @@ def index(request) :
         'prompt' : '画像生成実行中...',
         'reload' : True,
     }
-    s = isRunningTest()
+    s = readTest()
     if s == "" :
-        runTest()
+        proc = Popen(TEST_COM, shell=True, stdout=PIPE, stderr=PIPE, text=True)
     elif s == TEST_FINISH :
-        with open(TEST_TXT, mode="w") as f :
-            f.write("")
+        writeTest("")
         params['prompt'] = PROMPT
         params['img'] = IMGFILE
         params['reload'] = False
     return render(request, 'JapaneseStableDiffusion/index.html', params)
 
-def runTest() :
-    proc = Popen(TEST_COM, shell=True, stdout=PIPE, stderr=PIPE, text=True)
-    return
-
-def isRunningTest() :
+def readTest() :
     s = ""
     with open(TEST_TXT) as f :
         s = f.read()
     return s
+
+def writeTest(s) :
+    with open(TEST_TXT, mode="w") as f :
+        f.write(s)
+    return
