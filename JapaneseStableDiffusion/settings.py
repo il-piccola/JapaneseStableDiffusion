@@ -136,4 +136,7 @@ PROMPT = "蒼い空と青い海"
 
 TEST_PY = os.path.join(Path(__file__).resolve().parent, "test.py")
 TEST_COM = "python " + TEST_PY
+
 TEST_TXT = os.path.join(STATIC_ROOT, "test.txt")
+TEST_PROCESS = "processing"
+TEST_FINISH = "finish"

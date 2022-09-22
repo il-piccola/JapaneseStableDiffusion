@@ -5,6 +5,9 @@ from diffusers import LMSDiscreteScheduler
 from japanese_stable_diffusion import JapaneseStableDiffusionPipeline
 from settings import *
 
+with open(TEST_TXT, mode="w") as f :
+    f.write(TEST_PROCESS)
+
 # Use the K-LMS scheduler here instead
 scheduler = LMSDiscreteScheduler(beta_start=0.00085, beta_end=0.012, beta_schedule="scaled_linear", num_train_timesteps=1000)
 
@@ -16,3 +19,6 @@ with autocast(DEVICE):
 
 save_path = os.path.join(STATIC_ROOT, IMGFILE)
 image.save(save_path)
+
+with open(TEST_TXT, mode="w") as f :
+    f.write(TEST_FINISH)
