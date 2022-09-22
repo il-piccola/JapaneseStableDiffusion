@@ -24,6 +24,8 @@ with autocast(DEVICE):
 
 save_path = os.path.join(STATIC_ROOT, IMGFILE)
 image.save(save_path)
-shutil.copy2(save_path, STATIC_URL)
+# shutil.copy2(save_path, IMGDIR)
+save_path2 = os.path.join(IMGDIR, IMGFILE)
+image.save(save_path2)
 
 writeTest(TEST_FINISH)

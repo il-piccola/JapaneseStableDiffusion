@@ -128,6 +128,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 IMGFILE = "output.png"
+IMGDIR = os.path.join(Path(__file__).resolve().parent, 'static')
 
 MODEL_ID = "rinna/japanese-stable-diffusion"
 DEVICE = "cuda"
