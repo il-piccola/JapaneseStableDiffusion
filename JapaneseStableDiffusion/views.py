@@ -5,8 +5,7 @@ from .settings import *
 def index(request) :
     params = {
         'title' : 'Japanese Stable Diffusion Test',
-        'prompt' : '画像生成実行中',
-        'img' : IMGFILE,
+        'prompt' : '画像生成実行中...',
         'reload' : True,
     }
     s = isRunningTest()
@@ -16,6 +15,7 @@ def index(request) :
         with open(TEST_TXT, mode="w") as f :
             f.write("")
         params['prompt'] = PROMPT
+        params['img'] = IMGFILE
         params['reload'] = False
     return render(request, 'JapaneseStableDiffusion/index.html', params)
 
