@@ -30,9 +30,7 @@ pipe = pipe.to(DEVICE)
 with autocast(DEVICE):
     for imgfile in IMGLIST :
         image = pipe(readSentence(), guidance_scale=7.5)["sample"][0]
-        save_path = os.path.join(STATIC_ROOT, imgfile)
+        save_path = os.path.join(IMGDIR, imgfile)
         image.save(save_path)
-        save_path2 = os.path.join(IMGDIR, imgfile)
-        image.save(save_path2)
 
 writeTest(TEST_FINISH)
