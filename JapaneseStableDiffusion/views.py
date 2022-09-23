@@ -16,6 +16,7 @@ def index(request) :
         if request.POST :
             writeSentence(request.POST['sentence'])
             Popen(TEST_COM, shell=True, stdout=PIPE, stderr=PIPE, text=True)
+            params['sentence'] = request.POST['sentence']
             params['reload'] = True
     else :
         params['sentence'] = readSentence()
