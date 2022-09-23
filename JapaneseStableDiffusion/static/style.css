@@ -1,0 +1,333 @@
+﻿@charset "UTF-8";
+/* Template & Designed by Towako. */
+/* https://ninawas.me */
+
+/* ウェブフォントの読み込み */
+@import url('https://fonts.googleapis.com/css?family=Imprima|Major+Mono+Display|Noto+Serif+JP&display=swap');
+
+/* 全体に適用する */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: 'Noto Serif JP', serif;
+}
+
+/* 共通設定 */
+body {
+    line-height: 1.7;
+    letter-spacing: 0.1em;
+    text-align: justify;
+    word-break: break-all;
+    background-color: #000;
+    font-size: 10px;
+    color: #000;
+}
+
+/* リンク */
+a {
+    transition: all .5s;
+    text-decoration: none;
+    color: #000;
+}
+
+/* ヘッダー */
+header {
+    position: relative;
+    padding: 5% 0;
+    min-height: 70vh;
+    background: url('image.jpg') center/cover;
+    color: #000;
+}
+
+/* ヘッダー枠線 */
+#headerline {
+    margin: 0 auto;
+    width: 90%;
+    height: 80vh;
+    border: thin solid #000;
+}
+
+/* ヘッダー見出し */
+header h1 {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    padding: 0;
+    letter-spacing: 0em;
+    border-bottom: thin solid #000;
+    /* font-size: 1em; */
+    /* animation-name: SlideIn; */
+    /* animation-duration: 1s; */
+}
+
+header h1,
+section h2 {
+    text-shadow: 1px 1px 2px #666;
+    font-family: 'Major Mono Display', 'Noto Serif JP', serif;
+}
+
+/* ヘッダー内リンク */
+header .boxlink {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    padding: 0.2em 0.8em;
+    letter-spacing: 0.2em;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* font-size: 1.5em; */
+    font-family: 'Major Mono Display', 'Noto Serif JP', serif;
+    color: #000;
+    /* animation-name: FadeIn; */
+    /* animation-duration: 2s; */
+}
+
+header .boxlink:hover {
+    background-color: transparent;
+}
+
+/* 補足情報 */
+aside {
+    margin: 2em auto;
+    color: #4c647c;
+}
+
+/* フォントの指定 */
+aside,
+nav ul li a,
+section h3,
+footer,
+footer a,
+.en {
+    font-family: 'Imprima', 'Noto Serif JP', serif;
+}
+
+/* 中央揃え */
+aside,
+nav,
+footer {
+    text-align: center;
+}
+
+/* ナビゲーション */
+nav {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 5%;
+    left: 0;
+    padding: 0.5em 0;
+    background-color: #fff;
+    box-shadow: 0 1px 5px #f6f6f6;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+nav ul li {
+    flex-basis: 30%;
+}
+
+/* セクション */
+section {
+    margin: 3em auto;
+    padding: 0 2em;
+    padding-top: 100px;
+}
+
+/* セクションリンク */
+section a {
+    border-bottom: thin solid #986464;
+}
+
+/* ホバー */
+section a:hover {
+    background-color: #986464;
+    color: #fff;
+}
+
+/* セクション見出し */
+section h2 {
+    display: inline-block;
+    margin: 0.5em auto;
+    padding: 0 0.5em;
+    background-color: #986464;
+    font-size: 1.3em;
+    color: #fff;
+}
+
+section h3 {
+    margin: 1em auto;
+    padding-left: 0.5em;
+    border-left: 5px solid #986464;
+    font-size: 1.1em;
+}
+
+/* セクション内共通 */
+section p {
+    margin: 1em auto 1.5em;
+}
+
+section span {
+    border-bottom: thin dashed #000;
+}
+
+section mark {
+    margin: 0.2em auto;
+    padding: 0.1em 0.4em;
+    background-color: rgba(76, 100, 124, 0.3);
+}
+
+section strong {
+    font-weight: bold;
+    color: red;
+}
+
+/* リスト系 */
+section dl,
+section ul {
+    margin: 1em auto 1.5em;
+}
+
+section dd {
+    margin-left: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+section ul {
+    list-style-type: none;
+    margin-left: 1em;
+    padding-left: 1em;
+    border-left: 3px solid #986464;
+}
+
+/* リストここまで */
+
+/* フッター */
+footer {
+    margin: 0.5em auto;
+}
+
+/* 右揃え */
+.right {
+    text-align: right;
+}
+
+/* 枠線リンク */
+.link {
+    display: inline-block;
+    margin: 0.2em auto;
+    padding: 0.2em 0.5em;
+    border: thin solid #986464;
+    color: #986464;
+}
+
+/* 上に戻るボタン */
+#PageTop {
+    position: fixed;
+    bottom: 4%;
+    right: 5%;
+}
+
+#PageTop a {
+    display: block;
+    z-index: 100;
+    padding: 0 0.3em;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 1.3em;
+    color: #4c647c;
+}
+
+/* フォーム系 */
+/*
+textarea,
+input[type] {
+    -webkit-appearance: none;
+    padding: 0.2em 0.5em;
+    background-color: #fff;
+    border: thin solid #986464;
+    border-radius: 2px;
+    color: #000;
+}
+
+textarea {
+    width: 200px;
+    height: 70px;
+}
+
+textarea::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    border-radius: 50px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: #986464;
+    border-radius: 50px;
+}
+
+input[type=text] {
+    width: 80px;
+}
+
+input[type=submit] {
+    width: auto;
+}
+*/
+
+/* アニメーション */
+@keyframes SlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 横幅768px以上で読み込む */
+@media screen and (min-width:768px) {
+    header h1 {
+        top: 15%;
+        /* font-size: 4em; */
+    }
+
+    header .boxlink {
+        bottom: 15%;
+        /* font-size: 2.3em; */
+    }
+
+    /* nav ul li a {
+        font-size: 1.5em;
+    } */
+
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    section {
+        flex-basis: 40%;
+    }
+}
