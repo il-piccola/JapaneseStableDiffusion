@@ -17,12 +17,14 @@ def index(request) :
             writeSentence(request.POST['sentence'])
             Popen(TEST_COM, shell=True, stdout=PIPE, stderr=PIPE, text=True)
             params['reload'] = True
-    elif s == TEST_PROCESS :
-        params['reload'] = True
-    elif s == TEST_FINISH :
-        writeTest("")
-        params['prompt'] = '画像生成完了'
-        params['img'] = IMGFILE
+    else :
+        params['sentence'] = readSentence()
+        if s == TEST_PROCESS :
+            params['reload'] = True
+        elif s == TEST_FINISH :
+            writeTest("")
+            params['prompt'] = '画像生成完了'
+            params['img'] = IMGFILE
     return render(request, 'JapaneseStableDiffusion/index.html', params)
 
 def readTest() :

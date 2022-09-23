@@ -18,7 +18,9 @@
             <div class="row g-1">
                 <div class="col-auto">
                     {% if reload %}
-                    <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence" disabled>
+                    <input type="text" class="form-control" value="{{ sentence }}" id="sentence" name="sentence" disabled>
+                    {% elif sentence %}
+                    <input type="text" class="form-control" value="{{ sentence }}" placeholder="日本語の文" id="sentence" name="sentence">
                     {% else %}
                     <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence">
                     {% endif %}
