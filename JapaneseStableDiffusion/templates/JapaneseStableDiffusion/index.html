@@ -8,43 +8,49 @@
         {% if reload %}
         <script src="{% static 'reload.js' %}"></script>
         {% endif %}
-        {% comment %} <link rel="stylesheet" href="{% static 'common.css' %}"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
     <body>
+	    <header id="Top">
+        <div id="headerline">
         <h1>{{ title }}</h1>
-        <form class="form-inline" action="{% url 'index' %}" method="POST">
-            {% csrf_token %}
-            <div class="row g-1">
-                <div class="col-auto">
-                    {% if reload %}
-                    <input type="text" class="form-control" value="{{ sentence }}" id="sentence" name="sentence" disabled>
-                    {% elif sentence %}
-                    <input type="text" class="form-control" value="{{ sentence }}" placeholder="日本語の文" id="sentence" name="sentence">
-                    {% else %}
-                    <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence">
-                    {% endif %}
+        <div class="container boxlink">
+            <form action="{% url 'index' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-10">
+                        {% if reload %}
+                        <input type="text" class="form-control" value="{{ sentence }}" id="sentence" name="sentence" disabled>
+                        {% elif sentence %}
+                        <input type="text" class="form-control" value="{{ sentence }}" placeholder="日本語の文" id="sentence" name="sentence">
+                        {% else %}
+                        <input type="text" class="form-control" placeholder="日本語の文" id="sentence" name="sentence">
+                        {% endif %}
+                    </div>
+                    <div class="col-2">
+                        {% if reload %}
+                        <button type="submit" class="btn btn-primary mb-3" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            画像生成開始
+                        </button>
+                        {% else %}
+                        <button type="submit" class="btn btn-primary mb-3">画像生成開始</button>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="col-auto">
-                    {% if reload %}
-                    <button type="submit" class="btn btn-primary mb-3" disabled>
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        画像生成開始
-                    </button>
-                    {% else %}
-                    <button type="submit" class="btn btn-primary mb-3">画像生成開始</button>
-                    {% endif %}
-                </div>
+            </form>
+            {{ prompt }}<br>
+            {% if reload %}
+            <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
-        </form>
-        {{ prompt }}<br>
-        {% if reload %}
-        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">
-            <span class="visually-hidden">Loading...</span>
+            {% endif %}
+            {% if img %}
+            <img src="{% static img %}" alt="{{ sentence }}" width="300" height="300">
+            {% endif %}
         </div>
-        {% endif %}
-        {% if img %}
-        <img src="{% static img %}">
-        {% endif %}
+        </div>
+        </header>
     </body>
 </html>

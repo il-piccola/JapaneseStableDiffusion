@@ -8,7 +8,6 @@ from .settings import *
 def index(request) :
     params = {
         'title' : 'Japanese Stable Diffusion Test',
-        'prompt' : '画像生成実行中...',
         'reload' : False,
     }
     s = readTest()
@@ -16,11 +15,13 @@ def index(request) :
         if request.POST :
             writeSentence(request.POST['sentence'])
             Popen(TEST_COM, shell=True, stdout=PIPE, stderr=PIPE, text=True)
+            params['prompt'] = '画像生成実行中...'
             params['sentence'] = request.POST['sentence']
             params['reload'] = True
     else :
         params['sentence'] = readSentence()
         if s == TEST_PROCESS :
+            params['prompt'] = '画像生成実行中...'
             params['reload'] = True
         elif s == TEST_FINISH :
             writeTest("")
