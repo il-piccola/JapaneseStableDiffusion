@@ -23,10 +23,17 @@ def index(request) :
         if s == TEST_PROCESS :
             params['prompt'] = '画像生成実行中...'
             params['reload'] = True
+            params['imglist'] = []
+            for imgfile in IMGLIST :
+                if os.path.exists(os.path.join(IMGDIR, imgfile)) :
+                    params['imglist'].append(imgfile)
+            if len(params['imglist']) <= 0 :
+                del params['imglist']
         elif s == TEST_FINISH :
             writeTest("")
             params['prompt'] = '画像生成完了'
             params['img'] = IMGFILE
+            params['imglist'] = IMGLIST
     return render(request, 'JapaneseStableDiffusion/index.html', params)
 
 def readTest() :

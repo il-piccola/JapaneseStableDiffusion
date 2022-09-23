@@ -46,8 +46,10 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
             {% endif %}
-            {% if img %}
+            {% if imglist %}
+            {% for img in imglist %}
             <img src="{% static img %}" alt="{{ sentence }}" width="300" height="300">
+            {% endfor %}
             {% endif %}
         </div>
         </div>

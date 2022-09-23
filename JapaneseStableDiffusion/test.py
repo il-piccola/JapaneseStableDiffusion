@@ -28,11 +28,11 @@ pipe = JapaneseStableDiffusionPipeline.from_pretrained(MODEL_ID, torch_dtype=tor
 pipe = pipe.to(DEVICE)
 
 with autocast(DEVICE):
-    image = pipe(readSentence(), guidance_scale=7.5)["sample"][0]
-
-save_path = os.path.join(STATIC_ROOT, IMGFILE)
-image.save(save_path)
-save_path2 = os.path.join(IMGDIR, IMGFILE)
-image.save(save_path2)
+    for imgfile in IMGLIST :
+        image = pipe(readSentence(), guidance_scale=7.5)["sample"][0]
+        save_path = os.path.join(STATIC_ROOT, imgfile)
+        image.save(save_path)
+        save_path2 = os.path.join(IMGDIR, imgfile)
+        image.save(save_path2)
 
 writeTest(TEST_FINISH)
